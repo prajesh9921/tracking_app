@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { FaPlus } from "react-icons/fa6";
 import { formatDate } from "../../helper";
 import { clearEditData, updateChallenge } from "../../Store/store";
+import Image from "../../assets/img.png";
 
 const HomeScreen: React.FC = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,6 @@ const HomeScreen: React.FC = () => {
 
   const ShowActiveChallenges = () => {
     const today = formatDate(new Date());
-    console.log(today);
     const temp = ChallengesData.filter(
       (item) => formatDate(item?.date) === today
     );
@@ -150,28 +150,38 @@ const HomeScreen: React.FC = () => {
         </Button>
       </div>
 
-      {selectedFilter === "0" &&
+      {selectedFilter === "0" ? listData.length === 0 ? (
+        <div className={styles.imgdiv}>
+          <img src={Image} alt="img" className={styles.img}/>
+          <p>No challenges to show!</p>
+        </div>
+      ) : (
         listData?.map((item, index) => (
-          <ChallengeCard itemData={item} open={open}/>
-        ))}
+          <ChallengeCard itemData={item} open={open} />
+        ))
+      ) : null}
 
-      {selectedFilter === "1" &&
+      {selectedFilter === "1" ? listData.length === 0 ? (
+        <div className={styles.imgdiv}>
+          <img src={Image} alt="img" className={styles.img}/>
+          <p>No challenges to show!</p>
+        </div>
+      ) : (
         listData?.map((item, index) => (
-          <ChallengeCard
-            itemData={item}
-            open={open}
-            hidebtn={true}
-          />
-        ))}
+          <ChallengeCard itemData={item} open={open} hidebtn={true} />
+        ))
+      ) : null}
 
-      {selectedFilter === "2" &&
+      {selectedFilter === "2" ? listData.length === 0 ? (
+        <div className={styles.imgdiv}>
+          <img src={Image} alt="img" className={styles.img}/>
+          <p>No challenges to show!</p>
+        </div>
+      ) : (
         listData?.map((item, index) => (
-          <ChallengeCard
-            itemData={item}
-            open={open}
-            hidebtn={true}
-          />
-        ))}
+          <ChallengeCard itemData={item} open={open} hidebtn={true} />
+        ))
+      ) : null}
 
       <DialogBox open={openDialog} close={close} status={openDialog} />
     </div>
