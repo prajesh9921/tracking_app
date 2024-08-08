@@ -1,0 +1,36 @@
+.container {
+  padding: 1rem;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.textfield {
+  width: 100%;
+}
+
+.btn {
+  background-color: #000 !important;
+  color: #fff !important;
+  width: 50%;
+}
+
+.cancelbtn {
+  border-color: #000 !important;
+  color: #000 !important;
+  width: 50%;
+}
+
+.actionbtndiv {
+  display: flex;
+  gap: 1rem;
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+    box-sizing: border-box;
+    width: 80vw;
+  }
+}
